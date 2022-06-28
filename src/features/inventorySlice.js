@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import Items from '../items'
 
 const initialState = {
-	list: []
+	list: Items
 }
 
 export const inventorySlice = createSlice({

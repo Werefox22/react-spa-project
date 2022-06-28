@@ -16,8 +16,6 @@ function Form() {
 			location: ""
 		}
 
-		console.log(item)
-
 		dispatch(addItem(item))
 	}
 
