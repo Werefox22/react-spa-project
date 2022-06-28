@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { increaseQuantity, decreaseQuantity, removeItem } from '../features/inventorySlice'
 
 
-function List() {
+function Table() {
 	const list = useSelector((state) => state.inventory.list)
 	const dispatch = useDispatch()
 
@@ -27,22 +27,34 @@ function List() {
 
 	const mappedItems = list.map((item, index) => {
 		return (
-			<li key={index}>
-				{item.name} ({item.quantity}), Aisle {item.location} | 
-
-				<button onClick={(e) => quantDown(e, index)}>-</button>
-				<button onClick={(e) => quantUp(e, index)}>+</button> 
-				<button onClick={(e) => delItem(e, index)}>X</button>
-				|
-			</li>
+			<tr key={index}>
+				<td>{item.name}</td>
+				<td>{item.quantity}</td>
+				<td>{item.location}</td>
+				<td>
+					<button onClick={(e) => quantDown(e, index)}>-</button>
+					<button onClick={(e) => quantUp(e, index)}>+</button> 
+					<button onClick={(e) => delItem(e, index)}>X</button>
+				</td>
+			</tr>
 		)
 	})
 
 	return (
-		<ul>
-			{mappedItems}
-		</ul>
+		<table>
+			<thead>
+				<tr>
+					<td>Name</td>
+					<td>Quantity</td>
+					<td>Aisle</td>
+					<td>Actions</td>
+				</tr>
+			</thead>
+			<tbody>
+				{mappedItems}
+			</tbody>
+		</table>
 	)
 }
 
-export default List
+export default Table
