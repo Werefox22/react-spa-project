@@ -10,23 +10,37 @@ export const inventorySlice = createSlice({
 	initialState,
 	reducers: {
 		addItem: (state, action) => {
+			// expects action.payload to be an item object
 			return { list: [...state.list, action.payload] }
 		},
 		removeItem: (state, action) => {
+			// expects action.payload to be an index
 			let arr = [...state.list]
 			arr.splice(action.payload.index, 1)
 
 			return { list: arr }
 		},
 		increaseQuantity: (state, action) => {
+			// expects action.payload to be an index
 			let arr = [...state.list]
-			arr[action.payload].quantity++
+			let i = action.payload
+			arr[i] = {
+				name: arr[i].name,
+				quantity: arr[i].quantity + 1,
+				location: arr[i].location
+			}
 
 			return { list: arr }
 		},
 		decreaseQuantity: (state, action) => {
+			// expects action.payload to be an index
 			let arr = [...state.list]
-			arr[action.payload].quantity--
+			let i = action.payload
+			arr[i] = {
+				name: arr[i].name,
+				quantity: arr[i].quantity - 1,
+				location: arr[i].location
+			}
 
 			return { list: arr }
 		}
