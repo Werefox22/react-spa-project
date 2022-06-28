@@ -33,10 +33,12 @@ function List() {
 	const mappedItems = list.map((item, index) => {
 		return (
 			<li key={index}>
-				{item.name} ({item.quantity}), Aisle {item.location} 
+				{item.name} ({item.quantity}), Aisle {item.location} | 
+
 				<button onClick={(e) => quantDown(e, index)}>-</button>
 				<button onClick={(e) => quantUp(e, index)}>+</button> 
 				<button onClick={(e) => delItem(e, index)}>X</button>
+				|
 			</li>
 		)
 	})

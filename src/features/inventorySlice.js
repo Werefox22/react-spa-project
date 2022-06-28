@@ -16,7 +16,7 @@ export const inventorySlice = createSlice({
 		removeItem: (state, action) => {
 			// expects action.payload to be an index
 			let arr = [...state.list]
-			arr.splice(action.payload.index, 1)
+			arr.splice(action.payload, 1)
 
 			return { list: arr }
 		},
