@@ -27,7 +27,7 @@ function List() {
 
 	const mappedItems = list.map((item, index) => {
 		return (
-			<li key={index}>
+			<li key={index} style={{listStyle: "none"}}>
 				{item.name} ({item.quantity}), Aisle {item.location} | 
 
 				<button onClick={(e) => quantDown(e, index)}>-</button>

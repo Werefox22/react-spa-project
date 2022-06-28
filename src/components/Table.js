@@ -41,7 +41,10 @@ function Table() {
 	})
 
 	return (
-		<table>
+		<table style={{
+			width: "30%", 
+			margin: "auto",
+			}}>
 			<thead>
 				<tr>
 					<td>Name</td>

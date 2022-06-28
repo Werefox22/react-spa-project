@@ -6,6 +6,7 @@ function Form() {
 	const dispatch = useDispatch()
 	const [name, setName] = useState("")
 	const [count, setCount] = useState(1)
+	const [location, setLocation] = useState("")
 
 	const submitItem = (e) => {
 		e.preventDefault()
@@ -13,7 +14,7 @@ function Form() {
 		let item = {
 			name: name,
 			quantity: Math.max(Number(count), 0),
-			location: ""
+			location: location
 		}
 
 		dispatch(addItem(item))
@@ -27,7 +28,11 @@ function Form() {
 			</div>
 			<div>
 				<label htmlFor="numInput">Quantity</label>
-				<input type="number" onChange={(e) => setCount(e.target.value)} min='0' id="numInput" />
+				<input type="number" onChange={(e) => setCount(e.target.value)} min='0' max='10000' id="numInput" />
+			</div>
+			<div>
+				<label htmlFor="locInput">Location</label>
+				<input type="number" onChange={(e) => setLocation(e.target.value)} min='1' max='10' id="locInput" />
 			</div>
 			<button type="submit">Submit</button>
 		</form>

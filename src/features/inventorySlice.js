@@ -38,7 +38,7 @@ export const inventorySlice = createSlice({
 			let i = action.payload
 			arr[i] = {
 				name: arr[i].name,
-				quantity: arr[i].quantity - 1,
+				quantity: Math.max(arr[i].quantity - 1, 0),
 				location: arr[i].location
 			}
 

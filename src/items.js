@@ -40,7 +40,7 @@ const Items = [
 	"location": "2"
 	},
 	{
-	"name": "Tootpaste",
+	"name": "Toothpaste",
 	"quantity": 10,
 	"location": "3"
 	}
