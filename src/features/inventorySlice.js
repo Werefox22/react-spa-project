@@ -1,45 +1,33 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-	inventory: [
-
-	]
+	list: []
 }
 
-// let item = {
-// 	name: "",
-// 	quantity: 1,
-// 	location: ""
-// }
-
 export const inventorySlice = createSlice({
-	name: 'grocery',
+	name: 'inventory',
 	initialState,
 	reducers: {
-		addItem: (state) => {
-			return {
-				inventory: [...state.inventory, action.payload]
-			}
+		addItem: (state, action) => {
+			return { list: [...state.list, action.payload] }
 		},
 		removeItem: (state, action) => {
-			let arr = [...state.inventory]
+			let arr = [...state.list]
 			arr.splice(action.payload.index, 1)
 
-			return {
-				inventory: arr
-			}
+			return { list: arr }
 		},
 		increaseQuantity: (state, action) => {
-			let arr = [...state.inventory]
+			let arr = [...state.list]
 			arr[action.payload].quantity++
 
-			return { inventory: arr }
+			return { list: arr }
 		},
 		decreaseQuantity: (state, action) => {
-			let arr = [...state.inventory]
+			let arr = [...state.list]
 			arr[action.payload].quantity--
 
-			return { inventory: arr }
+			return { list: arr }
 		}
 	}
 })
